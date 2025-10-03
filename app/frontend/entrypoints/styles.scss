@@ -1,0 +1,28 @@
+@import "bootstrap/scss/bootstrap";
+
+body {
+  background: #f2f2f2;
+  background: radial-gradient(
+    circle,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(222, 222, 222, 1) 100%
+  );
+}
+
+#recognitions {
+  padding-top: 80px;
+}
+
+// Highlight effect for newly added recognition
+@keyframes fade-highlight {
+  0% {
+    background-color: #fff3cd;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+
+.highlight-new {
+  animation: fade-highlight 1s ease-in forwards;
+}

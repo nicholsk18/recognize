@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: user1@example.com
+  name: Alice User
+  password_digest: '$2a$12$9uQmJ9rjGplc6g7v1oQhJe2t6u6iYxwGvF0rYwq2kT3eVtqJ4h7nK'
+
+two:
+  email: user2@example.com
+  name: Bob User
+  password_digest: '$2a$12$9uQmJ9rjGplc6g7v1oQhJe2t6u6iYxwGvF0rYwq2kT3eVtqJ4h7nK'

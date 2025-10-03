@@ -1,0 +1,4 @@
+<%= turbo_stream.remove "recognition-#{@recognition.id}" %>
+<%= turbo_stream.append "toast-container" do %>
+  <%= render 'shared/toast', kind: :notice, message: 'Recognition deleted' %>
+<% end %>
