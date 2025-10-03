@@ -12,7 +12,7 @@
           <%= render 'recognition', recognition: recognition %>
         <% end %>
         <% if @recognitions.empty? %>
-          <li class="list-group-item text-muted">No recognitions yet.</li>
+          <li id="recognitions-empty" class="list-group-item text-muted">No recognitions yet.</li>
         <% end %>
       </ul>
     </div>

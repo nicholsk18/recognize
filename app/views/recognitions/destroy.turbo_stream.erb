@@ -1,4 +1,10 @@
 <%= turbo_stream.remove "recognition-#{@recognition.id}" %>
+<%# If list becomes empty, show the empty state %>
+<% if Recognition.count.zero? %>
+  <%= turbo_stream.append "recognitions-list" do %>
+    <li id="recognitions-empty" class="list-group-item text-muted">No recognitions yet.</li>
+  <% end %>
+<% end %>
 <%= turbo_stream.append "toast-container" do %>
   <%= render 'shared/toast', kind: :notice, message: 'Recognition deleted' %>
 <% end %>
