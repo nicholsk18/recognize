@@ -5,8 +5,7 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h1 class="h4 mb-3">Login</h1>
-            <%= form_with url: login_path, method: :post, class: 'vstack gap-3'
-            do %>
+            <%= form_with url: login_path, method: :post, class: 'vstack gap-3' do |f| %>
             <div>
               <label class="form-label small">Email</label>
               <%= email_field_tag :email, params[:email], class: 'form-control
