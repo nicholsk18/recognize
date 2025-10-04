@@ -1,13 +1,9 @@
 {
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "es5",
   "printWidth": 80,
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "endOfLine": "lf",
+  "tabWidth": 2,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "plugins": ["prettier-plugin-ruby"],
   "overrides": [
     {
       "files": "*.scss",
@@ -16,15 +12,14 @@
       }
     },
     {
-      "files": "*.html",
-      "options": {
-        "htmlWhitespaceSensitivity": "ignore"
-      }
-    },
-    {
       "files": "*.erb",
       "options": {
-        "htmlWhitespaceSensitivity": "ignore"
+        "parser": "html",
+        "singleQuote": false,
+        "trailingComma": "none",
+        "bracketSpacing": false,
+        "arrowParens": "avoid",
+        "bracketSameLine": false
       }
     }
   ]

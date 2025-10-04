@@ -1,0 +1,40 @@
+<div id="badges" class="container">
+  <div class="row g-4">
+    <div class="col-lg-12">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h6 mb-0">Badges</h2>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#badge-modal"
+        >
+          Create Badge
+        </button>
+      </div>
+      <ul id="badges-list" class="list-group small">
+        <% @badges.each do |badge| %> <%= render 'badge', badge: badge %> <% end %> <% if @badges.empty? %>
+        <li id="badges-empty" class="list-group-item text-muted">No badges yet.</li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="badge-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Badge</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div id="badge-form"><%= render 'form', badge: @badge %></div>
+      </div>
+    </div>
+  </div>
+</div>

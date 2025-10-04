@@ -11,7 +11,8 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "prettier": "3.6.2",
+    "@prettier/plugin-ruby": "^4.0.4",
+    "prettier": "^3.6.2",
     "sass": "^1.77.0",
     "vite": "^5.4.20",
     "vite-plugin-ruby": "^5.1.1"

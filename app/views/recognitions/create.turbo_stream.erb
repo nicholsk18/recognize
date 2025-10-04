@@ -1,4 +1,5 @@
-<%= turbo_stream.prepend "recognitions-list", partial: "recognition", locals: { recognition: @recognition, highlight: true } %>
+<%= turbo_stream.prepend "recognitions-list", partial: "recognition", locals: {
+recognition: @recognition, highlight: true } %>
 <%= turbo_stream.remove "recognitions-empty" %>
 <%= turbo_stream.replace "recognition-form", partial: "form", locals: { recognition: Recognition.new, users: @users, badges: @badges } %>
 <%= turbo_stream.append "toast-container" do %>

@@ -1,53 +1,46 @@
-<%= form_with model: recognition, url: recognitions_path, local: false, class: 'vstack gap-2' do |f| %>
-  <div>
-    <label class="form-label small">Recipient</label>
-    <%= f.select :recipient_id,
-          options_from_collection_for_select((users || @users).where.not(id: current_user.id), :id, :name, recognition.recipient_id),
-          { prompt: 'Choose' },
-          class: [
-            'form-select form-select-sm',
-            (recognition.errors[:recipient].present? || recognition.errors[:recipient_id].present?) ? 'is-invalid' : nil
-          ].compact.join(' ')
-    %>
-    <% if recognition.errors[:recipient].present? || recognition.errors[:recipient_id].present? %>
-      <div class="invalid-feedback d-block">
-        <%= (recognition.errors[:recipient] + recognition.errors[:recipient_id]).uniq.join(', ') %>
-      </div>
-    <% end %>
+<%= form_with model: recognition, url: recognitions_path, local: false, data: { modal_target: "recognition-modal" },
+class: 'vstack gap-2' do |f| %>
+<div>
+  <label class="form-label small">Recipient</label>
+  <%= f.select :recipient_id, options_from_collection_for_select((users ||
+  @users).where.not(id: current_user.id), :id, :name, recognition.recipient_id),
+  { prompt: 'Choose' }, class: [ 'form-select form-select-sm',
+  (recognition.errors[:recipient].present? ||
+  recognition.errors[:recipient_id].present?) ? 'is-invalid' : nil
+  ].compact.join(' ') %> <% if recognition.errors[:recipient].present? ||
+  recognition.errors[:recipient_id].present? %>
+  <div class="invalid-feedback d-block">
+    <%= (recognition.errors[:recipient] +
+    recognition.errors[:recipient_id]).uniq.join(', ') %>
   </div>
+  <% end %>
+</div>
 
-  <div>
-    <label class="form-label small">Badge</label>
-    <%= f.select :badge_id,
-          options_from_collection_for_select(badges || @badges, :id, :name, recognition.badge_id),
-          { prompt: 'Choose' },
-          class: [
-            'form-select form-select-sm',
-            (recognition.errors[:badge].present? || recognition.errors[:badge_id].present?) ? 'is-invalid' : nil
-          ].compact.join(' ')
-    %>
-    <% if recognition.errors[:badge].present? || recognition.errors[:badge_id].present? %>
-      <div class="invalid-feedback d-block">
-        <%= (recognition.errors[:badge] + recognition.errors[:badge_id]).uniq.join(', ') %>
-      </div>
-    <% end %>
+<div>
+  <label class="form-label small">Badge</label>
+  <%= f.select :badge_id, options_from_collection_for_select(badges || @badges,
+  :id, :name, recognition.badge_id), { prompt: 'Choose' }, class: [ 'form-select
+  form-select-sm', (recognition.errors[:badge].present? ||
+  recognition.errors[:badge_id].present?) ? 'is-invalid' : nil ].compact.join('
+  ') %> <% if recognition.errors[:badge].present? ||
+  recognition.errors[:badge_id].present? %>
+  <div class="invalid-feedback d-block">
+    <%= (recognition.errors[:badge] +
+    recognition.errors[:badge_id]).uniq.join(', ') %>
   </div>
+  <% end %>
+</div>
 
-  <div>
-    <label class="form-label small">Message</label>
-    <%= f.text_area :message, rows: 3, class: [
-          'form-control form-control-sm',
-          recognition.errors[:message].present? ? 'is-invalid' : nil
-        ].compact.join(' ')
-    %>
-    <% if recognition.errors[:message].present? %>
-      <div class="invalid-feedback d-block">
-        <%= recognition.errors[:message].uniq.join(', ') %>
-      </div>
-    <% end %>
+<div>
+  <label class="form-label small">Message</label>
+  <%= f.text_area :message, rows: 3, class: [ 'form-control form-control-sm',
+  recognition.errors[:message].present? ? 'is-invalid' : nil ].compact.join(' ')
+  %> <% if recognition.errors[:message].present? %>
+  <div class="invalid-feedback d-block">
+    <%= recognition.errors[:message].uniq.join(', ') %>
   </div>
+  <% end %>
+</div>
 
-  <div>
-    <%= f.submit 'Send', class: 'btn btn-primary btn-sm' %>
-  </div>
+<div><%= f.submit 'Send', class: 'btn btn-primary btn-sm' %></div>
 <% end %>

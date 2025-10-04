@@ -1,0 +1,10 @@
+<%= turbo_stream.remove "user-#{@user.id}" %>
+<%# If list becomes empty, show the empty state %>
+<% if User.count.zero? %>
+  <%= turbo_stream.append "users-list" do %>
+    <li id="users-empty" class="list-group-item text-muted">No users yet.</li>
+  <% end %>
+<% end %>
+<%= turbo_stream.append "toast-container" do %>
+  <%= render 'shared/toast', kind: :notice, message: 'User deleted' %>
+<% end %>
