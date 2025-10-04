@@ -1,0 +1,10 @@
+<%= turbo_stream.remove "badge-#{@badge.id}" %>
+<%# If list becomes empty, show the empty state %>
+<% if Badge.count.zero? %>
+  <%= turbo_stream.append "badges-list" do %>
+    <li id="badges-empty" class="list-group-item text-muted">No badges yet.</li>
+  <% end %>
+<% end %>
+<%= turbo_stream.append "toast-container" do %>
+  <%= render 'shared/toast', kind: :notice, message: 'Badge deleted' %>
+<% end %>

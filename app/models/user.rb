@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
+  validates :password, confirmation: true, if: :password_required?
+
+  private
+
+  def password_required?
+    password.present? || password_confirmation.present?
+  end
 end

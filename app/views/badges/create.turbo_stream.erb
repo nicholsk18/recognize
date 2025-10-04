@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "badges-list", partial: "badge", locals: { badge: @badge,
+highlight: true } %>
+  <%= turbo_stream.remove "badges-empty" %>
+  <%= turbo_stream.replace "badge-form", partial: "form", locals: { badge: Badge.new } %>
+  <%= turbo_stream.append "toast-container" do %>
+  <%= render 'shared/toast', kind: :notice, message: 'Badge created' %>
+<% end %>

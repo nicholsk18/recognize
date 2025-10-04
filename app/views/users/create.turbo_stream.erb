@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "users-list", partial: "user", locals: { user: @user,
+highlight: true } %>
+  <%= turbo_stream.remove "users-empty" %>
+  <%= turbo_stream.replace "user-form", partial: "form", locals: { user: User.new } %>
+  <%= turbo_stream.append "toast-container" do %>
+  <%= render 'shared/toast', kind: :notice, message: 'User created' %>
+<% end %>

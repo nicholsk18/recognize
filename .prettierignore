@@ -1,0 +1,6 @@
+# Ignore files that shouldn't be formatted
+node_modules/
+vendor/
+storage/
+log/
+tmp/

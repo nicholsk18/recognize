@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :recognitions, only: [:index, :create, :destroy]
+  resources :recognitions, only: [ :index, :create, :destroy ]
+  resources :badges, only: [ :index, :create, :destroy ]
+  resources :users, only: [ :index, :create, :destroy ]
   root "recognitions#index"
 end

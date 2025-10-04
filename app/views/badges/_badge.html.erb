@@ -1,0 +1,22 @@
+<li
+  id="badge-<%= badge.id %>"
+  class="list-group-item d-flex flex-column gap-1 <%= 'highlight-new' if local_assigns[:highlight] %>"
+>
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <div>
+        <strong><%= badge.name %></strong>
+      </div>
+      <div class="text-muted"><%= badge.slug %></div>
+      <div class="text-muted" style="font-size: 0.7rem">
+        <%= time_ago_in_words(badge.created_at) %> ago
+      </div>
+    </div>
+    <div>
+      <%= button_to badge_path(badge), method: :delete, local: false, class: 'btn btn-outline-danger
+      btn-sm', title: 'Delete badge' do %>
+      <i class="bi bi-trash"></i>
+      <% end %>
+    </div>
+  </div>
+</li>
